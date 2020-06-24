@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0>
+    <meta http-equiv=" X-UA-Compatible content="ie=edge">
+    <link rel="icon" type="image/png" href="{{ asset("img/favicon.png") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("CSS/main.css") }}">
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye&display=swap" rel="stylesheet">
+    <title>{% block title %} Bucket List {% endblock %}</title>
+</head>
+<body>
+<div class="container">
+
+    <header>{% block header %}
+            <nav>
+                <ul>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('aboutus') }}">About Us</a></li>
+                    <li><a href="{{ path('idea_list') }}">Liste des idées</a></li>
+                </ul>
+            </nav>
+            <div class="entete">
+                <img width="100px" src="{{ asset('img/anthony.png') }}">
+                <h1>Je suis mauvais</h1>
+                <img width="100px" src="{{ asset('img/anthony.png') }}">
+            </div>
+        {% endblock %}</header>
+    <main> {% block main %}  {% endblock %}</main>
+    <footer>{% block footer %}
+            &copy;Bucket-List {{ "now"|date("Y") }}
+            <br/>
+            By Fabián Alexis (<a href="https://github.com/fabianalexisinostroza/Antu">GitHub</a>)
+                                                                                                [<a
+                    href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>],
+            <a href="https://commons.wikimedia.org/wiki/File%3AAntu_color-fill.svg">via Wikimedia Commons</a>
+        {% endblock %}</footer>
+
+</div>
+
+
+</body>
+</html>

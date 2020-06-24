@@ -1,0 +1,17 @@
+.container {
+    font-family: 'Ribeye', cursive;
+}
+
+li {
+    display: inline-block;
+}
+
+.entete {
+    background-color: tomato;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+

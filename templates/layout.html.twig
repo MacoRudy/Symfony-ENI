@@ -16,9 +16,10 @@
     <header>{% block header %}
             <nav>
                 <ul>
-                    <li><a href="{{ path('home') }}">Home</a></li>
-                    <li><a href="{{ path('aboutus') }}">About Us</a></li>
-                    <li><a href="{{ path('idea_list') }}">Liste des idées</a></li>
+                    <li class="navbar"><a href="{{ path('home') }}">Home</a></li>
+                    <li class="navbar"><a href="{{ path('aboutus') }}">About Us</a></li>
+                    <li class="navbar"><a href="{{ path('idea_list') }}">Liste des idées</a></li>
+                    <li class="navbar"><a href="{{ path('add_idea') }}">Ajouter une idée</a></li>
                 </ul>
             </nav>
             <div class="entete">
@@ -27,7 +28,18 @@
                 <img width="100px" src="{{ asset('img/anthony.png') }}">
             </div>
         {% endblock %}</header>
-    <main> {% block main %}  {% endblock %}</main>
+
+    {% block messages %}
+        {% for label,messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">{{ message }}</div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+
+    <main> {% block main %}
+
+        {% endblock %}</main>
     <footer>{% block footer %}
             &copy;Bucket-List {{ "now"|date("Y") }}
             <br/>

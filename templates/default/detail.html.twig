@@ -1,6 +1,12 @@
-{%  extends 'layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 
 {% block main %}
-Details
+    <ul> <u><b>Titre :</b></u> {{ idea.title }}</ul>
+    <ul> <u><b>Description : </b></u>{{ idea.description }}</ul>
+    <ul><u><b>Auteur :</b></u> {{ idea.author }}</ul>
+    <ul><u><b>Crée le :</b></u> {{ idea.dateCreated | date("d/m/Y") }}</ul>
+    {% endblock %}
+
+{% block title %} {{ idea.title }} |  {{ parent() }}  %}
 {% endblock %}

@@ -20,9 +20,14 @@ class MainController extends Controller
      */
     public function aboutUs()
     {
-        return $this->render("default/aboutus.html.twig");
-    }
+        $page = file_get_contents('team.json', FILE_USE_INCLUDE_PATH);
+        $team = json_decode($page);
+        dump($team);
 
+        return $this->render("default/aboutus.html.twig", [
+            "team" => $team
+        ]);
+    }
 
 
 }

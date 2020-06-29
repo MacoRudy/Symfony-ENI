@@ -1,7 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, nihil, odit. Corporis dolorem ipsum nihil quae quidem. Accusantium animi asperiores dolore in labore non perferendis quae quisquam rem, tenetur voluptates.
+
+    {% for member in team %}
+        <ul>
+
+            <li> <img src=" {{ member.picture }}" width="100px"></li>
+            <li> {{ member.firstname }}</li>
+            <li>
+                {% if  member.lastname == 'Potencier'%}
+                    &#128151
+                {% endif %}
+                {{ member.lastname }}</li>
+            <li> né le : {{ member.dateOfBirth | date("d/m/Y") }}</li>
+            <li> Createur de : {{ member.creatorOf }}</li>
+
+        </ul>
+    {% endfor %}
 {% endblock %}
 
-{%  block title %} About Us | {{ parent() }} {%  endblock %}
+{% block title %} About Us | {{ parent() }} {% endblock %}

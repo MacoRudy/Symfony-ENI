@@ -3,6 +3,8 @@
 
 {% block main %}
     <ul> <u><b>Titre :</b></u> {{ idea.title }}</ul>
+    <ul> <u><b>Categorie :</b></u> {{ idea.category.name }}</ul>
+
     <ul> <u><b>Description : </b></u>{{ idea.description }}</ul>
     <ul><u><b>Auteur :</b></u> {{ idea.author }}</ul>
     <ul><u><b>Crée le :</b></u> {{ idea.dateCreated | date("d/m/Y") }}</ul>

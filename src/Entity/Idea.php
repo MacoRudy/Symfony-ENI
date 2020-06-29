@@ -18,10 +18,20 @@ class Idea
      */
     private $category;
 
-    public function getCategory()
+
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
+
+
+    public function setCategory($category): self
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+
 
     /**
      * @ORM\Id()

@@ -17,6 +17,28 @@ class Category
      */
     private $ideas;
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getIdeas(): ArrayCollection
+    {
+        return $this->ideas;
+    }
+
+    public function addIdeas(Idea $idea): self
+    {
+        if (!$this->posts->contains($idea)) {
+            $this->ideas[] =$idea;
+            $idea->setIdea($this);
+        }
+
+        return $this;
+    }
+    public function setIdeas(ArrayCollection $ideas): void
+    {
+        $this->ideas = $ideas;
+    }
+
     public function __construct()
     {
         $this->ideas = new ArrayCollection();

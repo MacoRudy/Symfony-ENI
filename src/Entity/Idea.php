@@ -14,6 +14,16 @@ use DateTimeInterface;
 class Idea
 {
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="ideas")
+     */
+    private $category;
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")

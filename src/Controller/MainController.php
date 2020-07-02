@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends Controller
@@ -29,5 +31,11 @@ class MainController extends Controller
         ]);
     }
 
+    public function createPost(Request $request)
+    {
+        if (!$this->isGranted("ROLE_ADMIN")){
+            throw $this->createAccessDeniedException("Interdit");
+        }
+    }
 
 }

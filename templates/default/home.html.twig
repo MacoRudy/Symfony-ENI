@@ -1,1 +1,9 @@
 {%  extends 'layout.html.twig' %}
+
+{% block main %}
+    <h1>
+Welcome home
+{% if (app.user) %}
+    {{ app.user.username }}
+{% endif %}</h1>
+{% endblock %}

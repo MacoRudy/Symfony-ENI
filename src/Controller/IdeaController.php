@@ -41,6 +41,9 @@ class IdeaController extends Controller
      */
     public function add(EntityManagerInterface $em, Request $request)
     {
+        if (!$this->isGranted("ROLE_USER")) {
+            throw $this->createAccessDeniedException("Interdit");
+        }
         $idea = new Idea();
         $ideaForm = $this->createForm(IdeaType::class, $idea);
         $idea->setDateCreated(new \DateTime());

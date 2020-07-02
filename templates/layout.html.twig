@@ -14,13 +14,21 @@
 <div class="container">
 
     <header>{% block header %}
-            <nav>
-                <ul>
-                    <li class="navbar"><a href="{{ path('home') }}">Home</a></li>
-                    <li class="navbar"><a href="{{ path('aboutus') }}">About Us</a></li>
-                    <li class="navbar"><a href="{{ path('idea_list') }}">Liste des idées</a></li>
-                    <li class="navbar"><a href="{{ path('add_idea') }}">Ajouter une idée</a></li>
-                </ul>
+            <nav class="navbar">
+
+                <input type="button" onclick=window.location.href="{{ path('home') }}" value="Home"/>
+                <input type="button" onclick=window.location.href="{{ path('aboutus') }}" value="About Us"/>
+                <input type="button" onclick=window.location.href="{{ path('idea_list') }}" value="Liste des idées"/>
+                {% if (app.user) %}
+                    <input type="button" onclick=window.location.href="{{ path('add_idea') }}"
+                           value="Ajouter une idée"/>
+                    <input type="button" onclick=window.location.href="{{ path('app_logout') }}"
+                           value="Logout ({{ app.user.username }})"/>
+                {% else %}
+                    <input type="button" onclick=window.location.href="{{ path('user_register') }}" value="Register"/>
+                    <input type="button" onclick=window.location.href="{{ path('app_login') }}" value="Login"/>
+                {% endif %}
+
             </nav>
             <div class="entete">
                 <img width="100px" src="{{ asset('img/anthony.png') }}">
